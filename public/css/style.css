@@ -1,0 +1,42 @@
+body {
+  background-image: url(../images/background-site.jpg);
+  background-size: cover;
+}
+
+nav {
+  background-color: #82a3a1;
+}
+
+#blog-presentation {
+  background-color: #82a3a1;
+  margin: 25px 0;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px #011936;
+}
+
+#presentation-portrait img {
+  width: 200px;
+  box-shadow: 5px 5px 5px #011936;
+}
+
+#blog-last-episode {
+}
+
+.episode {
+  background-color: #82a3a1;
+  height: 250px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px #011936;
+  margin: 5px;
+  padding: 5px;
+}
+
+.formulaire {
+  background-color: #82a3a1;
+  height: 250px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px #011936;
+  margin: 5px;
+  padding: 5px;
+}

@@ -8,6 +8,9 @@ try {
     elseif ($_GET['action'] == 'login') {
       login();
     }
+    elseif ($_GET['action'] == 'episode') {
+      episode();
+    }
   }
   else {
     displayHome();

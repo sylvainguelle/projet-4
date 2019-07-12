@@ -6,6 +6,8 @@ require_once('model/querymanager.php');
 
 function displayHome()
 {
+  $episodeManager = new Episodes();
+  $episode = $episodeManager->getLastEpisode();
   require("view/frontend/homeview.php");
 }
 

@@ -12,17 +12,16 @@
 </div>
 <div id="blog-last-episode" class="row justify-content-between">
   <div class="col-lg-12">
+    <?php
+    $episodeId = $episode[0];
+    $episodeTitle = $episode[1];
+    $episodeText = $episode[2];
+    $episodeDate = $episode[3];
+    ?>
     <div class="episode">
-      <h3>titre chapitre</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <a class="episode-link" href="index.php?action=episode&amp;id=1">(lire la suite)</a>
-    </div>
-  </div>
-  <div class="col-lg-12">
-    <div class="episode">
-      <h3>titre chapitre</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <a class="episode-link" href="index.php?action=episode&amp;id=2">(lire la suite)</a>
+      <h3><?= $episodeTitle ?></h3>
+      <em>Publié le <?= $episodeDate ?></em>
+      <p><?= substr($episodeText,0,200)?> ... <a class="episode-link" href="index.php?action=episode&amp;id=<?= $episodeId ?>">(lire la suite)</a></p>
     </div>
   </div>
 </div>

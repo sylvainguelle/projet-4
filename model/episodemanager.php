@@ -18,4 +18,12 @@ class Episodes extends QueryManager
     $episode = $req->fetch();
     return $episode;
   }
+
+  public function getLastEpisode()
+  {
+    $db = $this->dbConnect();
+    $req = $db->query("SELECT * FROM episode ORDER BY id DESC LIMIT 1");
+    $episode = $req->fetch();
+    return $episode;
+  }
 }

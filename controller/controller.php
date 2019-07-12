@@ -13,7 +13,6 @@ function listEpisode()
 {
   $episodeManager = new Episodes();
   $episodes = $episodeManager->getEpisodes();
-  print_r($episodes->fetch());
   require("view/frontend/episodelistview.php");
 }
 

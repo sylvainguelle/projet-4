@@ -15,7 +15,7 @@
        <h3><?= $episodeTitle ?></h3>
        <em>Publié le <?= $episodeDate ?></em>
        <p><?= substr($episodeText,0,200)?> ... <a class="episode-link" href="index.php?action=episode&amp;id=<?= $episodeId ?>">(lire la suite)</a></p>
-      </div>
+    </div>
     <?php
     }
     $episodes->closeCursor()

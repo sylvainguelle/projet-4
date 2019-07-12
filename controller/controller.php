@@ -21,9 +21,10 @@ function login()
   require("view/frontend/loginview.php");
 }
 
-function episode()
+function episode($episodeId)
 {
-  $episodeId = $_GET['id'];
+  $episodeManager = new Episodes();
+  $episode = $episodeManager->getEpisode($episodeId);
   require("view/frontend/episodeview.php");
 }
 

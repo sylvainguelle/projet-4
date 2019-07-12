@@ -9,7 +9,7 @@ try {
       login();
     }
     elseif ($_GET['action'] == 'episode') {
-      episode();
+      episode($_GET['id']);
     }
   }
   else {

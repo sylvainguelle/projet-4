@@ -11,6 +11,13 @@ try {
     elseif ($_GET['action'] == 'episode') {
       episode($_GET['id']);
     }
+    elseif ($_GET['action'] == 'loginUser') {
+      loginUser($_POST);
+    }
+    elseif ($_GET['action'] == 'inscription') {
+      inscription();
+      print_r($_POST);
+    }
   }
   else {
     displayHome();

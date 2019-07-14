@@ -4,7 +4,7 @@
 <div id="blog-login" class="row justify-content-center">
   <div id="login" class="formulaire col-lg-5">
     <h3>Formulaire d'incription</h3>
-    <form class="" action="cible.php" method="post">
+    <form class="" action="index.php?action=inscription" method="post">
       <div class="">
         <label for="firstname">Nom : </label>
         <input type="text" name="firstname" required>
@@ -28,7 +28,7 @@
   </div>
   <div id="inscription" class="formulaire col-lg-5">
     <h3>Déja inscrit ? Connectez vous ici!</h3>
-    <form class="" action="cible.php" method="post">
+    <form class="" action="index.php?action=loginUser" method="post">
       <div class="">
         <label for="email">Adresse mail : </label>
         <input type="email" name="email" value="" required>

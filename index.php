@@ -15,8 +15,7 @@ try {
       loginUser($_POST);
     }
     elseif ($_GET['action'] == 'inscription') {
-      inscription();
-      print_r($_POST);
+      inscription($_POST);
     }
   }
   else {

@@ -23,22 +23,5 @@ class Login extends QueryManager
     $req->closeCursor();
     return $status;
   }
-
-  /*$email = htmlspecialchars($_POST['email']);
-  $password = md5(htmlspecialchars($_POST['password']));
-
-  $bdd = new PDO('mysql:host=localhost;dbname=test', 'root', 'root');
-  $req = $bdd->query('SELECT * FROM testform');
-
-  while ($identifiant = $req->fetch())
-  {
-    $verifyMail = htmlspecialchars($identifiant[3]);
-    $verifyPassword = htmlspecialchars($identifiant[4]);
-    if ($password == $verifyPassword && $email == $verifyMail) {
-      echo "hello world";
-  }
-}
-
-$req->closeCursor();*/
 }
 ?>

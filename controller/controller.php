@@ -3,6 +3,8 @@
 require_once('model/episodemanager.php');
 require_once('model/querymanager.php');
 require_once('model/loginmanager.php');
+require_once('model/inscriptionmanager.php');
+
 
 function displayHome()
 {
@@ -39,16 +41,18 @@ function loginUser($userIds)
   } else {
     require("view/frontend/loginview.php");
   }
-  //verifier email et password
-  //page utilisateur
-  //si non retour formulaire avec msg
 }
 
-function inscription()
+function inscription($userIds)
 {
-  echo "inscription";
+  $inscriptionManager = new Inscription();
+  $inscription = $inscriptionManager->checkUserMail($userIds['email']);
+  if ($inscription) {
+    $inscriptionManager->addUser($userIds);
+  }
+  //print_r($userIds['email']);
   //verifier les champs
-  //si non retour formulaire avec imap_msg
+  //si non retour formulaire avec msg
   //page utilisateur
 }
 

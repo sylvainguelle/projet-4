@@ -40,6 +40,17 @@
       <div class="">
         <input type="submit" name="envoyer" required>
       </div>
+      <div class="">
+      <?php
+      if (isset($login))
+      {
+        if (!$login)
+        {
+            echo "<p>Identifiants incorrects</p>";
+        }
+      }
+      ?>
+      </div>
     </form>
   </div>
 </div>

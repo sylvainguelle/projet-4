@@ -37,7 +37,7 @@ function loginUser($userIds)
   if ($login) {
     require("view/frontend/useraccountview.php");
   } else {
-    echo "non";
+    require("view/frontend/loginview.php");
   }
   //verifier email et password
   //page utilisateur

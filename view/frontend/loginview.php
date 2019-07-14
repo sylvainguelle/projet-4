@@ -24,6 +24,17 @@
       <div class="">
         <input type="submit" name="envoyer" required>
       </div>
+      <div class="">
+      <?php
+      if (isset($inscription))
+      {
+        if (!$inscription)
+        {
+            echo "<p>Adresse mail déja utilisée</p>";
+        }
+      }
+      ?>
+      </div>
     </form>
   </div>
   <div id="inscription" class="formulaire col-lg-5">

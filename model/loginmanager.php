@@ -13,8 +13,8 @@ class Login extends QueryManager
     $emailLogin = htmlspecialchars($userIds['email']);
     while ($identifiant = $req->fetch())
     {
-      $verifyMail = htmlspecialchars($identifiant[2]);
-      $verifyPassword = $identifiant[3];
+      $verifyMail = htmlspecialchars($identifiant[1]);
+      $verifyPassword = $identifiant[2];
       if ($passwordLogin == $verifyPassword && $emailLogin == $verifyMail)
       {
         $status = true;

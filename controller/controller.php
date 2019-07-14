@@ -49,6 +49,8 @@ function inscription($userIds)
   $inscription = $inscriptionManager->checkUserMail($userIds['email']);
   if ($inscription) {
     $inscriptionManager->addUser($userIds);
+  } else {
+    require("view/frontend/loginview.php");
   }
   //print_r($userIds['email']);
   //verifier les champs

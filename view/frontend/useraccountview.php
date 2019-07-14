@@ -4,6 +4,11 @@
 <div id="blog-login" class="row justify-content-center">
   <div id="user-panel" class="episode col-lg-12">
     <h3>Page utilisateur</h3>
+    <?php
+    if ($login) {
+      echo "oui";
+    }
+    ?>
   </div>
 </div>
 <?php $content = ob_get_clean(); ?>

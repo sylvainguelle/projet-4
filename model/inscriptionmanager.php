@@ -30,10 +30,8 @@ class Inscription extends QueryManager
     $email = htmlspecialchars($userIds['email']);
     $password = md5(htmlspecialchars($userIds['password']));
 
-    $db = $this->bdconnect();
-    $db->query("INSERT INTO testform (firstname,lastname,email,password) VALUES ('$firstName','$lastName','$email','$password') ");
-
-  require('index.php');
+    $db = $this->dbconnect();
+    $db->query("INSERT INTO users (firstname,lastname,mail,password) VALUES ('$firstName','$lastName','$email','$password') ");
   }
   /*$firstName = htmlspecialchars($_POST['firstname']);
 $lastName = htmlspecialchars($_POST['lastname']);

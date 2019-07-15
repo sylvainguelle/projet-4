@@ -14,9 +14,6 @@ try {
     elseif ($_GET['action'] == 'loginUser') {
       loginUser($_POST);
     }
-    elseif ($_GET['action'] == 'inscription') {
-      inscription($_POST);
-    }
   }
   else {
     displayHome();

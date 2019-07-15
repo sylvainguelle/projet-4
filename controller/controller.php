@@ -3,7 +3,6 @@
 require_once('model/episodemanager.php');
 require_once('model/querymanager.php');
 require_once('model/loginmanager.php');
-require_once('model/inscriptionmanager.php');
 
 
 function displayHome()
@@ -43,17 +42,3 @@ function loginUser($userIds)
     require("view/frontend/loginview.php");
   }
 }
-
-function inscription($userIds)
-{
-  $inscriptionManager = new Inscription();
-  $inscription = $inscriptionManager->checkUserMail($userIds['email']);
-  if ($inscription) {
-    $inscriptionManager->addUser($userIds);
-    require("view/frontend/loginview.php");
-  } else {
-    require("view/frontend/loginview.php");
-  }
-}
-
- ?>

@@ -2,44 +2,8 @@
 
 <?php ob_start(); ?>
 <div id="blog-login" class="row justify-content-center">
-  <div id="login" class="formulaire col-lg-5">
-    <h3>Formulaire d'incription</h3>
-    <form class="" action="index.php?action=inscription" method="post">
-      <div class="">
-        <label for="firstname">Nom : </label>
-        <input type="text" name="firstname" required>
-      </div>
-      <div class="">
-        <label for="lastname">Prénom : </label>
-        <input type="text" name="lastname" required>
-      </div>
-      <div class="">
-        <label for="email">Adresse mail : </label>
-        <input type="email" name="email" value="" required>
-      </div>
-      <div class="">
-        <label for="password">Mot de passe : </label>
-        <input type="password" name="password" value="" required>
-      </div>
-      <div class="">
-        <input type="submit" name="envoyer" required>
-      </div>
-      <div class="">
-      <?php
-      if (isset($inscription) AND !$inscription)
-      {
-        echo "<p>Adresse mail déja utilisée</p>";
-      }
-      if (isset($inscription) AND $inscription)
-      {
-        echo "<p>Votre compte a bien été créé !</p>";
-      }
-      ?>
-      </div>
-    </form>
-  </div>
   <div id="inscription" class="formulaire col-lg-5">
-    <h3>Déja inscrit ? Connectez vous ici!</h3>
+    <h3>Connection à l'interface d'administration</h3>
     <form class="" action="index.php?action=loginUser" method="post">
       <div class="">
         <label for="email">Adresse mail : </label>

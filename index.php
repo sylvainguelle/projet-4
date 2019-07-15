@@ -18,6 +18,10 @@ try {
         addComment($_GET['id'], $_POST['pseudo'], $_POST['comment']);
         episode($_GET['id']);
     }
+    elseif ($_GET['action'] == 'signalComment') {
+        signalComment($_GET['id']);
+        episode($_GET['epId']);
+    }
   }
   else {
     displayHome();

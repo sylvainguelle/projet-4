@@ -39,6 +39,12 @@ function addComment($postId, $pseudo, $comment)
   $commentManager->addComment($postId, $pseudo, $comment);
 }
 
+function signalComment($commentId)
+{
+  $commentManager = new Comments();
+  $commentManager->signalComment($commentId);
+}
+
 function loginUser($userIds)
 {
   $loginManager = new Login();

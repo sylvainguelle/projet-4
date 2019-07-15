@@ -11,12 +11,12 @@
       </div>
       <div class="">
         <label for="password">Mot de passe : </label>
-        <input type="password" name="password" value="" required>
+        <input type="password" name="password" required>
       </div>
       <div class="">
         <input type="submit" name="envoyer" required>
       </div>
-      <div class="">
+      <div>
       <?php
       if (isset($login))
       {

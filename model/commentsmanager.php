@@ -16,13 +16,11 @@ class Comments extends QueryManager
     $db = $this->dbConnect();
     $db->query("INSERT INTO comments(episodeId, pseudo, comment, commentDate) VALUES('$postId','$pseudo','$comment', NOW())");
   }
-  /*$db = $this->dbConnect();
-  $req = $db->query('SELECT * FROM episode ORDER BY id');
-  return $req;*/
 
-  //function recuperer les comment suivant id episode
+  public function signalComment($commentId)
+  {
+    $db = $this->dbConnect();
+    $db->query("UPDATE comments SET moderate = '1' WHERE id ='$commentId'");
 
-  //function ajout comment
-
-  //function signaler commentaire
+  }
 }

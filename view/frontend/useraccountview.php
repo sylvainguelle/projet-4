@@ -7,6 +7,10 @@
     <?php
     if ($login) {
       echo "oui";
+      print_r($userIds);
+    }
+    if ($admin) {
+      echo "admin";
     }
     ?>
   </div>

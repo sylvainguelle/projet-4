@@ -36,6 +36,7 @@ function loginUser($userIds)
 {
   $loginManager = new Login();
   $login = $loginManager->verifyLogin($userIds);
+  $admin = $loginManager->adminLogin($userIds);
   if ($login) {
     require("view/frontend/useraccountview.php");
   } else {
@@ -49,13 +50,10 @@ function inscription($userIds)
   $inscription = $inscriptionManager->checkUserMail($userIds['email']);
   if ($inscription) {
     $inscriptionManager->addUser($userIds);
+    require("view/frontend/loginview.php");
   } else {
     require("view/frontend/loginview.php");
   }
-  //print_r($userIds['email']);
-  //verifier les champs
-  //si non retour formulaire avec msg
-  //page utilisateur
 }
 
  ?>

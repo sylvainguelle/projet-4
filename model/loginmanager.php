@@ -23,5 +23,18 @@ class Login extends QueryManager
     $req->closeCursor();
     return $status;
   }
+
+  public function adminLogin($userIds)
+  {
+    $status = false;
+    $emailLogin = htmlspecialchars($userIds['email']);
+    $db = $this->dbConnect();
+    $req = $db->query("SELECT admin FROM users WHERE mail = '$emailLogin'");
+    $admin = $req->fetch();
+    if ($admin[0]) {
+      $status = true;
+    }
+    return $status;
+  }
 }
 ?>

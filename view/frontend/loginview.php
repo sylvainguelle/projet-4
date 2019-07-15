@@ -1,4 +1,4 @@
-<?php $title = "Accueil"; ?>
+<?php $title = "Connection"; ?>
 
 <?php ob_start(); ?>
 <div id="blog-login" class="row justify-content-center">
@@ -26,12 +26,13 @@
       </div>
       <div class="">
       <?php
-      if (isset($inscription))
+      if (isset($inscription) AND !$inscription)
       {
-        if (!$inscription)
-        {
-            echo "<p>Adresse mail déja utilisée</p>";
-        }
+        echo "<p>Adresse mail déja utilisée</p>";
+      }
+      if (isset($inscription) AND $inscription)
+      {
+        echo "<p>Votre compte a bien été créé !</p>";
       }
       ?>
       </div>

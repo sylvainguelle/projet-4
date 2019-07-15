@@ -3,7 +3,7 @@
 require_once('model/episodemanager.php');
 require_once('model/querymanager.php');
 require_once('model/loginmanager.php');
-
+require_once('model/commentsmanager.php');
 
 function displayHome()
 {
@@ -28,7 +28,15 @@ function episode($episodeId)
 {
   $episodeManager = new Episodes();
   $episode = $episodeManager->getEpisode($episodeId);
+  $commentManager = new Comments();
+  $comments = $commentManager->getComments($episodeId);
   require("view/frontend/episodeview.php");
+}
+
+function addComment($postId, $pseudo, $comment)
+{
+  $commentManager = new Comments();
+  $commentManager->addComment($postId, $pseudo, $comment);
 }
 
 function loginUser($userIds)

@@ -14,6 +14,10 @@ try {
     elseif ($_GET['action'] == 'loginUser') {
       loginUser($_POST);
     }
+    elseif ($_GET['action'] == 'addComment') {
+        addComment($_GET['id'], $_POST['pseudo'], $_POST['comment']);
+        episode($_GET['id']);
+    }
   }
   else {
     displayHome();

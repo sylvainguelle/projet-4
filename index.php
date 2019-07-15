@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require("controller/controller.php");
 try {
   if (isset($_GET['action'])) {
@@ -21,6 +23,9 @@ try {
     elseif ($_GET['action'] == 'signalComment') {
         signalComment($_GET['id']);
         episode($_GET['epId']);
+    }
+    elseif ($_GET['action'] == 'deleteComment') {
+      deleteComment($_GET['id']);
     }
   }
   else {

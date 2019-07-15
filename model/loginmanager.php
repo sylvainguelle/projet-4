@@ -18,22 +18,10 @@ class Login extends QueryManager
       if ($passwordLogin == $verifyPassword && $emailLogin == $verifyMail)
       {
         $status = true;
+        $_SESSION['statut'] = 'admin';
       }
     }
     $req->closeCursor();
-    return $status;
-  }
-
-  public function adminLogin($userIds)
-  {
-    $status = false;
-    $emailLogin = htmlspecialchars($userIds['email']);
-    $db = $this->dbConnect();
-    $req = $db->query("SELECT admin FROM users WHERE mail = '$emailLogin'");
-    $admin = $req->fetch();
-    if ($admin[0]) {
-      $status = true;
-    }
     return $status;
   }
 }

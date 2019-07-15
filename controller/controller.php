@@ -1,9 +1,9 @@
 <?php
-
 require_once('model/episodemanager.php');
 require_once('model/querymanager.php');
 require_once('model/loginmanager.php');
 require_once('model/commentsmanager.php');
+require_once('model/adminmanager.php');
 
 function displayHome()
 {
@@ -45,13 +45,31 @@ function signalComment($commentId)
   $commentManager->signalComment($commentId);
 }
 
+function deleteComment($commentId)
+{
+  $commentManager = new Comments();
+  $commentManager->deleteComment($commentId);
+  if ($_SESSION['statut'] == 'admin') {
+    $adminManager = new Admin();
+    $comments = $adminManager->getComments();
+    $episodeManager = new Episodes();
+    $episodes = $episodeManager->getEpisodes();
+    require("view/backend/adminview.php");
+  } else {
+    require("view/frontend/loginview.php");
+  }
+}
+
 function loginUser($userIds)
 {
   $loginManager = new Login();
   $login = $loginManager->verifyLogin($userIds);
-  $admin = $loginManager->adminLogin($userIds);
   if ($login) {
-    require("view/frontend/useraccountview.php");
+    $adminManager = new Admin();
+    $comments = $adminManager->getComments();
+    $episodeManager = new Episodes();
+    $episodes = $episodeManager->getEpisodes();
+    require("view/backend/adminview.php");
   } else {
     require("view/frontend/loginview.php");
   }

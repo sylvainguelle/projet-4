@@ -27,6 +27,9 @@ try {
     elseif ($_GET['action'] == 'deleteComment') {
       deleteComment($_GET['id']);
     }
+    elseif ($_GET['action'] == 'validComment') {
+      validComment($_GET['id']);
+    }
   }
   else {
     displayHome();

@@ -30,6 +30,12 @@ class Comments extends QueryManager
     $db->query("DELETE FROM comments WHERE id ='$commentId'");
   }
 
+  public function validComment($commentId)
+  {
+    $db = $this->dbConnect();
+    $db->query("UPDATE comments SET moderate = '0' WHERE id ='$commentId'");
+  }
+
   public function getCommentsToModerate(){
     $db = $this->dbConnect();
     $req = $db->query('SELECT * FROM comments WHERE moderate = 1');

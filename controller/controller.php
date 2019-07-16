@@ -50,8 +50,8 @@ function deleteComment($commentId)
   $commentManager = new Comments();
   $commentManager->deleteComment($commentId);
   if ($_SESSION['statut'] == 'admin') {
-    $adminManager = new Admin();
-    $comments = $adminManager->getComments();
+    $comentManager = new Comments();
+    $comments = $comentManager->getCommentsToModerate();
     $episodeManager = new Episodes();
     $episodes = $episodeManager->getEpisodes();
     require("view/backend/adminview.php");
@@ -59,6 +59,22 @@ function deleteComment($commentId)
     require("view/frontend/loginview.php");
   }
 }
+
+function validComment($commentId)
+{
+  $commentManager = new Comments();
+  $commentManager->validComment($commentId);
+  if ($_SESSION['statut'] == 'admin') {
+    $comentManager = new Comments();
+    $comments = $comentManager->getCommentsToModerate();
+    $episodeManager = new Episodes();
+    $episodes = $episodeManager->getEpisodes();
+    require("view/backend/adminview.php");
+  } else {
+    require("view/frontend/loginview.php");
+  }
+}
+
 
 function loginUser($userIds)
 {

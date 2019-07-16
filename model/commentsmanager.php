@@ -29,4 +29,10 @@ class Comments extends QueryManager
     $db = $this->dbConnect();
     $db->query("DELETE FROM comments WHERE id ='$commentId'");
   }
+
+  public function getCommentsToModerate(){
+    $db = $this->dbConnect();
+    $req = $db->query('SELECT * FROM comments WHERE moderate = 1');
+    return $req;
+  }
 }

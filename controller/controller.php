@@ -65,8 +65,8 @@ function loginUser($userIds)
   $loginManager = new Login();
   $login = $loginManager->verifyLogin($userIds);
   if ($login) {
-    $adminManager = new Admin();
-    $comments = $adminManager->getComments();
+    $comentManager = new Comments();
+    $comments = $comentManager->getCommentsToModerate();
     $episodeManager = new Episodes();
     $episodes = $episodeManager->getEpisodes();
     require("view/backend/adminview.php");

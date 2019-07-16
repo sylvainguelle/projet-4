@@ -42,6 +42,9 @@ try {
     elseif ($_GET['action'] == 'saveModifyEpisode') {
       saveModifyEpisode($_GET['id'],$_POST['title'],$_POST['episode']);
     }
+    elseif ($_GET['action'] == 'deleteEpisode') {
+      deleteEpisode($_GET['id']);
+    }
   }
   else {
     displayHome();

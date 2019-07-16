@@ -38,4 +38,10 @@ class Episodes extends QueryManager
     $db = $this->dbConnect();
     $db->query("UPDATE episode SET title ='$title', episodeText = '$episode' WHERE id='$episodeId'");
   }
+
+  public function deleteEpisode($episodeId)
+  {
+    $db = $this->dbConnect();
+    $db->query("DELETE FROM episode WHERE id ='$episodeId'");
+  }
 }

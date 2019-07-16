@@ -26,4 +26,10 @@ class Episodes extends QueryManager
     $episode = $req->fetch();
     return $episode;
   }
+
+  public function saveNewEpisode($title,$episode)
+  {
+    $db = $this->dbConnect();
+    $db->query("INSERT INTO episode(title,episodeText,date) VALUES('$title','$episode', NOW())");
+  }
 }

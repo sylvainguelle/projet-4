@@ -30,6 +30,12 @@ try {
     elseif ($_GET['action'] == 'validComment') {
       validComment($_GET['id']);
     }
+    elseif ($_GET['action'] == 'newEpisode') {
+      newEpisode();
+    }
+    elseif ($_GET['action'] == 'saveNewEpisode') {
+      saveNewEpisode($_POST['title'],$_POST['episode']);
+    }
   }
   else {
     displayHome();

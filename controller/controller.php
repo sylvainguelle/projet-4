@@ -90,3 +90,25 @@ function loginUser($userIds)
     require("view/frontend/loginview.php");
   }
 }
+
+function newEpisode()
+{
+
+  require("view/backend/editorview.php");
+
+}
+
+function saveNewEpisode($title,$episode)
+{
+  $episodeManager = new Episodes();
+  $episodeManager->saveNewEpisode($title,$episode);
+  if ($_SESSION['statut'] == 'admin') {
+    $comentManager = new Comments();
+    $comments = $comentManager->getCommentsToModerate();
+    //$episodeManager = new Episodes();
+    $episodes = $episodeManager->getEpisodes();
+    require("view/backend/adminview.php");
+  } else {
+    require("view/frontend/loginview.php");
+  }
+}

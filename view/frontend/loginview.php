@@ -4,7 +4,7 @@
 <div id="blog-login" class="row justify-content-center">
   <div id="inscription" class="formulaire col-lg-5">
     <h3>Connection à l'interface d'administration</h3>
-    <form class="" action="index.php?action=loginUser" method="post">
+    <form action="index.php?action=loginUser" method="post">
       <div class="">
         <label for="email">Adresse mail : </label>
         <input type="email" name="email" value="" required>

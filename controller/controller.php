@@ -119,3 +119,18 @@ function modifyEpisode($episodeId)
   $episode = $episodeManager->getEpisode($episodeId);
   require("view/backend/modifyview.php");
 }
+
+function saveModifyEpisode($episodeId,$title,$episode)
+{
+  $episodeManager = new Episodes();
+  $episode = $episodeManager->saveModifyEpisode($episodeId,$title,$episode);
+  if ($_SESSION['statut'] == 'admin') {
+    $comentManager = new Comments();
+    $comments = $comentManager->getCommentsToModerate();
+    //$episodeManager = new Episodes();
+    $episodes = $episodeManager->getEpisodes();
+    require("view/backend/adminview.php");
+  } else {
+    require("view/frontend/loginview.php");
+  }
+}

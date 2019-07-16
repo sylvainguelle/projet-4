@@ -39,6 +39,9 @@ try {
     elseif ($_GET['action'] == 'modifyEpisode') {
       modifyEpisode($_GET['id']);
     }
+    elseif ($_GET['action'] == 'saveModifyEpisode') {
+      saveModifyEpisode($_GET['id'],$_POST['title'],$_POST['episode']);
+    }
   }
   else {
     displayHome();

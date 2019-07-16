@@ -32,4 +32,10 @@ class Episodes extends QueryManager
     $db = $this->dbConnect();
     $db->query("INSERT INTO episode(title,episodeText,date) VALUES('$title','$episode', NOW())");
   }
+
+  public function saveModifyEpisode($episodeId,$title,$episode)
+  {
+    $db = $this->dbConnect();
+    $db->query("UPDATE episode SET title ='$title', episodeText = '$episode' WHERE id='$episodeId'");
+  }
 }

@@ -3,7 +3,6 @@ require_once('model/episodemanager.php');
 require_once('model/querymanager.php');
 require_once('model/loginmanager.php');
 require_once('model/commentsmanager.php');
-require_once('model/adminmanager.php');
 
 function displayHome()
 {
@@ -105,7 +104,6 @@ function saveNewEpisode($title,$episode)
   if ($_SESSION['statut'] == 'admin') {
     $comentManager = new Comments();
     $comments = $comentManager->getCommentsToModerate();
-    //$episodeManager = new Episodes();
     $episodes = $episodeManager->getEpisodes();
     require("view/backend/adminview.php");
   } else {
@@ -127,7 +125,6 @@ function saveModifyEpisode($episodeId,$title,$episode)
   if ($_SESSION['statut'] == 'admin') {
     $comentManager = new Comments();
     $comments = $comentManager->getCommentsToModerate();
-    //$episodeManager = new Episodes();
     $episodes = $episodeManager->getEpisodes();
     require("view/backend/adminview.php");
   } else {
@@ -142,7 +139,6 @@ function deleteEpisode($episodeId)
   if ($_SESSION['statut'] == 'admin') {
     $comentManager = new Comments();
     $comments = $comentManager->getCommentsToModerate();
-    //$episodeManager = new Episodes();
     $episodes = $episodeManager->getEpisodes();
     require("view/backend/adminview.php");
   } else {

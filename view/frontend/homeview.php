@@ -6,8 +6,12 @@
     <img src="public/images/author-portrait.jpeg" alt="">
   </div>
   <div id="presentation-text" class="col-lg-8">
-    <h2>Bienvenue sur le blog livre de Jean Brochefort</h2>
-    <p>Jean Brochefort, acteur et écrivain, innove pour son nouveau roman. Les episodes seront publiés en ligne sur ce blog. Pour ne pas rater un épisode, inscrivez-vous!</p>
+    <h2>Bienvenue sur le blog livre de Jean Forteroche</h2>
+    <p>Jean Forteroche, né le 01 janvier 1970 à San Francisco, est un écrivain
+      français dont les thèmes de prédilection sont l'aventure et la nature
+      sauvage.</p>
+    <p>Il tire aussi de ses lectures et de sa propre vie de bohème l'inspiration pour de nombreux ouvrages.</p>
+    <p>Pour son nouveau roman, "Billet simple pour l'Alaska", Jean Forteroche innove et les episodes seront publiés en ligne sur ce blog.</p>
   </div>
 </div>
 <div id="blog-last-episode" class="row justify-content-between">
@@ -21,7 +25,7 @@
     <div class="episode">
       <h3><?= $episodeTitle ?></h3>
       <em>Publié le <?= $episodeDate ?></em>
-      <p><?= substr($episodeText,0,200)?> ... <a class="episode-link" href="index.php?action=episode&amp;id=<?= $episodeId ?>">(lire la suite)</a></p>
+      <p><?= substr($episodeText,0,600)?> ... <a class="episode-link" href="index.php?action=episode&amp;id=<?= $episodeId ?>">(lire la suite)</a></p>
     </div>
   </div>
 </div>

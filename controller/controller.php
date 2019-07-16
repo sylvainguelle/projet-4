@@ -112,3 +112,10 @@ function saveNewEpisode($title,$episode)
     require("view/frontend/loginview.php");
   }
 }
+
+function modifyEpisode($episodeId)
+{
+  $episodeManager = new Episodes();
+  $episode = $episodeManager->getEpisode($episodeId);
+  require("view/backend/modifyview.php");
+}

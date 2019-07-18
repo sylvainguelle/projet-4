@@ -7,21 +7,16 @@ class Login extends QueryManager
   public function verifyLogin($userIds)
   {
     $status = false;
-    $db = $this->dbConnect();
-    $req = $db->query('SELECT * FROM users');
+    $emailLogin = $userIds['email'];
     $passwordLogin = md5($userIds['password']);
-    $emailLogin = htmlspecialchars($userIds['email']);
-    while ($identifiant = $req->fetch())
-    {
-      $verifyMail = htmlspecialchars($identifiant[1]);
-      $verifyPassword = $identifiant[2];
-      if ($passwordLogin == $verifyPassword && $emailLogin == $verifyMail)
-      {
-        $status = true;
-        $_SESSION['statut'] = 'admin';
-      }
+    $db = $this->dbConnect();
+    $req = $db->query("SELECT * FROM users WHERE mail ='$emailLogin' ");
+    $identifiant = $req->fetch();
+    print_r($identifiant);
+    if ($passwordLogin == $identifiant[2]) {
+      $status = true;
+      $_SESSION['statut'] = 'admin';
     }
-    $req->closeCursor();
     return $status;
   }
 }

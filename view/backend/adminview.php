@@ -15,7 +15,7 @@
      ?>
      <p>
        Commentaire de
-       <?= $commentPseudo ?> du <?= $commentDate ?> :  <?= $commentContain ?>
+       <?= htmlspecialchars($commentPseudo) ?> du <?= $commentDate ?> :  <?= htmlspecialchars($commentContain) ?>
        <a href="index.php?action=deleteComment&amp;id=<?= $commentId ?>">supprimer</a>
        <a href="index.php?action=validComment&amp;id=<?= $commentId ?>">valider</a>
      </p>

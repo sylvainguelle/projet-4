@@ -20,12 +20,14 @@ function listEpisode()
 
 function login()
 {
-  if ($_SESSION['statut'] == 'admin') {
-    $comentManager = new Comments();
-    $comments = $comentManager->getCommentsToModerate();
-    $episodeManager = new Episodes();
-    $episodes = $episodeManager->getEpisodes();
-    require("view/backend/adminview.php");
+  if (isset($_SESSION['statut'])){
+    if ($_SESSION['statut'] == 'admin') {
+      $comentManager = new Comments();
+      $comments = $comentManager->getCommentsToModerate();
+      $episodeManager = new Episodes();
+      $episodes = $episodeManager->getEpisodes();
+      require("view/backend/adminview.php");
+    }
   } else {
     require("view/frontend/loginview.php");
   }
@@ -87,7 +89,7 @@ function loginUser($userIds)
 {
   $loginManager = new Login();
   $login = $loginManager->verifyLogin($userIds);
-  if ($login) {
+  if ($_SESSION['statut'] == 'admin') {
     $comentManager = new Comments();
     $comments = $comentManager->getCommentsToModerate();
     $episodeManager = new Episodes();

@@ -7,38 +7,44 @@ class Comments extends QueryManager
   public function getComments($id)
   {
     $db = $this->dbConnect();
-    $req = $db->query("SELECT * FROM comments WHERE episodeId ='$id'");
+    $req = $db->prepare("SELECT * FROM comments WHERE episodeId = ? ORDER BY id DESC");
+    $req->execute(array($id));
     return $req;
   }
 
   public function addComment($postId, $pseudo, $comment)
   {
     $db = $this->dbConnect();
-    $db->query("INSERT INTO comments(episodeId, pseudo, comment, commentDate) VALUES('$postId','$pseudo','$comment', NOW())");
+    $req = $db->prepare("INSERT INTO comments(episodeId, pseudo, comment, commentDate) VALUES(?,?,?, NOW())");
+    $req->execute(array($postId, $pseudo, $comment));
   }
 
   public function signalComment($commentId)
   {
     $db = $this->dbConnect();
-    $db->query("UPDATE comments SET moderate = '1' WHERE id ='$commentId'");
+    $req = $db->prepare("UPDATE comments SET moderate = '1' WHERE id =?");
+    $req->execute(array($commentId));
 
   }
 
   public function deleteComment($commentId)
   {
     $db = $this->dbConnect();
-    $db->query("DELETE FROM comments WHERE id ='$commentId'");
+    $req = $db->prepare("DELETE FROM comments WHERE id =?");
+    $req->execute(array($commentId));
   }
 
   public function validComment($commentId)
   {
     $db = $this->dbConnect();
-    $db->query("UPDATE comments SET moderate = '0' WHERE id ='$commentId'");
+    $req = $db->prepare("UPDATE comments SET moderate = '0' WHERE id =?");
+    $req->execute(array($commentId));
   }
 
   public function getCommentsToModerate(){
     $db = $this->dbConnect();
-    $req = $db->query('SELECT * FROM comments WHERE moderate = 1');
+    $req = $db->prepare('SELECT * FROM comments WHERE moderate = 1');
+    $req->execute();
     return $req;
   }
 }

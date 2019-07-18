@@ -7,14 +7,16 @@ class Episodes extends QueryManager
   public function getEpisodes()
   {
     $db = $this->dbConnect();
-    $req = $db->query('SELECT * FROM episode ORDER BY id');
+    $req = $db->prepare('SELECT * FROM episode ORDER BY id');
+    $req->execute();
     return $req;
   }
 
   public function getEpisode($episodeId)
   {
     $db = $this->dbConnect();
-    $req = $db->query("SELECT * FROM episode WHERE id ='$episodeId'");
+    $req = $db->prepare("SELECT * FROM episode WHERE id =?");
+    $req->execute(array($episodeId));
     $episode = $req->fetch();
     return $episode;
   }
@@ -22,7 +24,8 @@ class Episodes extends QueryManager
   public function getLastEpisode()
   {
     $db = $this->dbConnect();
-    $req = $db->query("SELECT * FROM episode ORDER BY id DESC LIMIT 1");
+    $req = $db->prepare("SELECT * FROM episode ORDER BY id DESC LIMIT 1");
+    $req->execute();
     $episode = $req->fetch();
     return $episode;
   }
@@ -30,18 +33,21 @@ class Episodes extends QueryManager
   public function saveNewEpisode($title,$episode)
   {
     $db = $this->dbConnect();
-    $db->query("INSERT INTO episode(title,episodeText,date) VALUES('$title','$episode', NOW())");
+    $req = $db->prepare("INSERT INTO episode(title,episodeText,date) VALUES(?,?, NOW())");
+    $req->execute(array($title,$episode));
   }
 
   public function saveModifyEpisode($episodeId,$title,$episode)
   {
     $db = $this->dbConnect();
-    $db->query("UPDATE episode SET title ='$title', episodeText = '$episode' WHERE id='$episodeId'");
+    $req = $db->prepare("UPDATE episode SET title =?, episodeText = ? WHERE id=?");
+    $req->execute(array($title,$episode,$episodeId));
   }
 
   public function deleteEpisode($episodeId)
   {
     $db = $this->dbConnect();
-    $db->query("DELETE FROM episode WHERE id ='$episodeId'");
+    $req = $db->prepare("DELETE FROM episode WHERE id =?");
+    $req->execute(array($episodeId));
   }
 }

@@ -47,4 +47,4 @@
 </div>
 <?php $content = ob_get_clean(); ?>
 
-<?php require("view/frontoffice/template.php"); ?>
+<?php require("view/frontend/template.php"); ?>

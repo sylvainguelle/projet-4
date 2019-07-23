@@ -14,4 +14,4 @@
 </div>
 <?php $content = ob_get_clean(); ?>
 
-<?php require("view/backoffice/templateadmin.php"); ?>
+<?php require("view/backend/templateadmin.php"); ?>

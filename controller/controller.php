@@ -103,7 +103,7 @@ function loginUser($userIds)
 function newEpisode()
 {
 
-  require("view/backend/editorview.php");
+  require("view/backoffice/editorview.php");
 
 }
 

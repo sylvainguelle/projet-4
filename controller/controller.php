@@ -8,14 +8,14 @@ function displayHome()
 {
   $episodeManager = new Episodes();
   $episode = $episodeManager->getLastEpisode();
-  require("view/frontend/homeview.php");
+  require("view/frontoffice/homeview.php");
 }
 
 function listEpisode()
 {
   $episodeManager = new Episodes();
   $episodes = $episodeManager->getEpisodes();
-  require("view/frontend/episodelistview.php");
+  require("view/frontoffice/episodelistview.php");
 }
 
 function login()
@@ -26,10 +26,10 @@ function login()
       $comments = $comentManager->getCommentsToModerate();
       $episodeManager = new Episodes();
       $episodes = $episodeManager->getEpisodes();
-      require("view/backend/adminview.php");
+      require("view/backoffice/adminview.php");
     }
   } else {
-    require("view/frontend/loginview.php");
+    require("view/frontoffice/loginview.php");
   }
 }
 
@@ -39,7 +39,7 @@ function episode($episodeId)
   $episode = $episodeManager->getEpisode($episodeId);
   $commentManager = new Comments();
   $comments = $commentManager->getComments($episodeId);
-  require("view/frontend/episodeview.php");
+  require("view/frontoffice/episodeview.php");
 }
 
 function addComment($postId, $pseudo, $comment)
@@ -63,9 +63,9 @@ function deleteComment($commentId)
     $comments = $comentManager->getCommentsToModerate();
     $episodeManager = new Episodes();
     $episodes = $episodeManager->getEpisodes();
-    require("view/backend/adminview.php");
+    require("view/backoffice/adminview.php");
   } else {
-    require("view/frontend/loginview.php");
+    require("view/frontoffice/loginview.php");
   }
 }
 
@@ -78,9 +78,9 @@ function validComment($commentId)
     $comments = $comentManager->getCommentsToModerate();
     $episodeManager = new Episodes();
     $episodes = $episodeManager->getEpisodes();
-    require("view/backend/adminview.php");
+    require("view/backoffice/adminview.php");
   } else {
-    require("view/frontend/loginview.php");
+    require("view/frontoffice/loginview.php");
   }
 }
 
@@ -94,9 +94,9 @@ function loginUser($userIds)
     $comments = $comentManager->getCommentsToModerate();
     $episodeManager = new Episodes();
     $episodes = $episodeManager->getEpisodes();
-    require("view/backend/adminview.php");
+    require("view/backoffice/adminview.php");
   } else {
-    require("view/frontend/loginview.php");
+    require("view/frontoffice/loginview.php");
   }
 }
 
@@ -115,9 +115,9 @@ function saveNewEpisode($title,$episode)
     $comentManager = new Comments();
     $comments = $comentManager->getCommentsToModerate();
     $episodes = $episodeManager->getEpisodes();
-    require("view/backend/adminview.php");
+    require("view/backoffice/adminview.php");
   } else {
-    require("view/frontend/loginview.php");
+    require("view/frontoffice/loginview.php");
   }
 }
 
@@ -125,7 +125,7 @@ function modifyEpisode($episodeId)
 {
   $episodeManager = new Episodes();
   $episode = $episodeManager->getEpisode($episodeId);
-  require("view/backend/modifyview.php");
+  require("view/backoffice/modifyview.php");
 }
 
 function saveModifyEpisode($episodeId,$title,$episode)
@@ -136,9 +136,9 @@ function saveModifyEpisode($episodeId,$title,$episode)
     $comentManager = new Comments();
     $comments = $comentManager->getCommentsToModerate();
     $episodes = $episodeManager->getEpisodes();
-    require("view/backend/adminview.php");
+    require("view/backoffice/adminview.php");
   } else {
-    require("view/frontend/loginview.php");
+    require("view/frontoffice/loginview.php");
   }
 }
 
@@ -150,8 +150,8 @@ function deleteEpisode($episodeId)
     $comentManager = new Comments();
     $comments = $comentManager->getCommentsToModerate();
     $episodes = $episodeManager->getEpisodes();
-    require("view/backend/adminview.php");
+    require("view/backoffice/adminview.php");
   } else {
-    require("view/frontend/loginview.php");
+    require("view/frontoffice/loginview.php");
   }
 }

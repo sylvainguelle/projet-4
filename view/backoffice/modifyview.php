@@ -20,4 +20,4 @@ $episodeDate = $episode[3];
 </div>
 <?php $content = ob_get_clean(); ?>
 
-<?php require("view/backend/templateadmin.php"); ?>
+<?php require("view/backoffice/templateadmin.php"); ?>

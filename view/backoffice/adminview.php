@@ -5,23 +5,26 @@
   <div id="user-panel" class="episode col-lg-12">
     <h4>Commentaires signalés par les lecteurs</h4>
     <?php
-    while ($comment = $comments->fetch())
-    {
-     $commentId = $comment[0];
-     $commentEp = $comment[1];
-     $commentContain = $comment[2];
-     $commentPseudo = $comment[3];
-     $commentDate = $comment[4];
-     ?>
-     <p>
-       Commentaire de
-       <?= htmlspecialchars($commentPseudo) ?> du <?= $commentDate ?> :  <?= htmlspecialchars($commentContain) ?>
-       <a href="index.php?action=deleteComment&amp;id=<?= $commentId ?>">supprimer</a>
-       <a href="index.php?action=validComment&amp;id=<?= $commentId ?>">valider</a>
-     </p>
-    <?php
-    }
-    $comments->closeCursor();
+      /*if ($comments->fetch() == false) {
+        echo "<p>Pas de commentaires en attente de modération</p>";
+      }*/
+      while ($comment = $comments->fetch())
+      {
+        $commentId = $comment[0];
+        $commentEp = $comment[1];
+        $commentContain = $comment[2];
+        $commentPseudo = $comment[3];
+        $commentDate = $comment[4];
+        ?>
+        <p>
+          Commentaire de
+          <?= htmlspecialchars($commentPseudo) ?> du <?= $commentDate ?> :  <?= htmlspecialchars($commentContain) ?>
+          <a href="index.php?action=deleteComment&amp;id=<?= $commentId ?>">supprimer</a>
+          <a href="index.php?action=validComment&amp;id=<?= $commentId ?>">valider</a>
+        </p>
+      <?php
+      }
+      $comments->closeCursor();
     ?>
   </div>
   <div id="user-panel" class="episode col-lg-12">
@@ -41,7 +44,7 @@
        <a href="index.php?action=deleteEpisode&amp;id=<?= $episodeId ?>">supprimer</a></p>
     <?php
     }
-    $comments->closeCursor()
+    $episodes->closeCursor()
     ?>
   </div>
 </div>

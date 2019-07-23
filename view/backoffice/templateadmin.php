@@ -14,11 +14,12 @@
         height: 500
       });
     </script>
+    <script src="./public/js/navbar.js"></script>
     <link rel="icon" type="image/x-icon" href="./public/images/mountain-15-48-260771.png">
     <link rel="stylesheet" href="./public/css/style.css" />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="index.php">Billet simple pour l'Alaska</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

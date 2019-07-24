@@ -2,7 +2,6 @@
 
 <?php ob_start(); ?>
 <div id="blog-last-episode" class="row justify-content-between">
-  <div class="col-lg-12">
     <?php
     while ($episode = $episodes->fetch())
     {
@@ -11,16 +10,17 @@
      $episodeText = $episode[2];
      $episodeDate = $episode[3];
      ?>
-     <div class="episode">
-       <h3><?= $episodeTitle ?></h3>
-       <em>Publié le <?= $episodeDate ?></em>
-       <p><?= substr($episodeText,0,200)?> ... <a class="episode-link" href="index.php?action=episode&amp;id=<?= $episodeId ?>">(lire la suite)</a></p>
-    </div>
+     <div class="col-lg-12">
+       <div class="episode">
+         <h3><?= $episodeTitle ?></h3>
+         <em>Publié le <?= $episodeDate ?></em><br>
+         <?= substr(strip_tags($episodeText),0,200)?> ... <a class="episode-link" href="index.php?action=episode&amp;id=<?= $episodeId ?>">(lire la suite)</a>
+       </div>
+     </div>
     <?php
     }
     $episodes->closeCursor()
     ?>
-  </div>
 </div>
 <?php $content = ob_get_clean(); ?>
 

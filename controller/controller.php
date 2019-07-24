@@ -58,30 +58,14 @@ function deleteComment($commentId)
 {
   $commentManager = new Comments();
   $commentManager->deleteComment($commentId);
-  if ($_SESSION['statut'] == 'admin') {
-    $comentManager = new Comments();
-    $comments = $comentManager->getCommentsToModerate();
-    $episodeManager = new Episodes();
-    $episodes = $episodeManager->getEpisodes();
-    require("view/backoffice/adminview.php");
-  } else {
-    require("view/frontoffice/loginview.php");
-  }
+  login();
 }
 
 function validComment($commentId)
 {
   $commentManager = new Comments();
   $commentManager->validComment($commentId);
-  if ($_SESSION['statut'] == 'admin') {
-    $comentManager = new Comments();
-    $comments = $comentManager->getCommentsToModerate();
-    $episodeManager = new Episodes();
-    $episodes = $episodeManager->getEpisodes();
-    require("view/backoffice/adminview.php");
-  } else {
-    require("view/frontoffice/loginview.php");
-  }
+  login();
 }
 
 
@@ -89,15 +73,7 @@ function loginUser($userIds)
 {
   $loginManager = new Login();
   $login = $loginManager->verifyLogin($userIds);
-  if ($_SESSION['statut'] == 'admin') {
-    $comentManager = new Comments();
-    $comments = $comentManager->getCommentsToModerate();
-    $episodeManager = new Episodes();
-    $episodes = $episodeManager->getEpisodes();
-    require("view/backoffice/adminview.php");
-  } else {
-    require("view/frontoffice/loginview.php");
-  }
+  login();
 }
 
 function newEpisode()
@@ -111,14 +87,7 @@ function saveNewEpisode($title,$episode)
 {
   $episodeManager = new Episodes();
   $episodeManager->saveNewEpisode($title,$episode);
-  if ($_SESSION['statut'] == 'admin') {
-    $comentManager = new Comments();
-    $comments = $comentManager->getCommentsToModerate();
-    $episodes = $episodeManager->getEpisodes();
-    require("view/backoffice/adminview.php");
-  } else {
-    require("view/frontoffice/loginview.php");
-  }
+  login();
 }
 
 function modifyEpisode($episodeId)
@@ -132,26 +101,12 @@ function saveModifyEpisode($episodeId,$title,$episode)
 {
   $episodeManager = new Episodes();
   $episode = $episodeManager->saveModifyEpisode($episodeId,$title,$episode);
-  if ($_SESSION['statut'] == 'admin') {
-    $comentManager = new Comments();
-    $comments = $comentManager->getCommentsToModerate();
-    $episodes = $episodeManager->getEpisodes();
-    require("view/backoffice/adminview.php");
-  } else {
-    require("view/frontoffice/loginview.php");
-  }
+  login();
 }
 
 function deleteEpisode($episodeId)
 {
   $episodeManager = new Episodes();
   $episodeManager->deleteEpisode($episodeId);
-  if ($_SESSION['statut'] == 'admin') {
-    $comentManager = new Comments();
-    $comments = $comentManager->getCommentsToModerate();
-    $episodes = $episodeManager->getEpisodes();
-    require("view/backoffice/adminview.php");
-  } else {
-    require("view/frontoffice/loginview.php");
-  }
+  login();
 }

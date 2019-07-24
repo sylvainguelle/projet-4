@@ -28,6 +28,28 @@
     ?>
   </div>
   <div id="user-panel" class="episode col-lg-12">
+    <h4>Dernier commentaires écrit par les lecteurs</h4>
+    <?php
+      while ($comment = $lastComments->fetch())
+      {
+        $commentId = $comment[0];
+        $commentEp = $comment[1];
+        $commentContain = $comment[2];
+        $commentPseudo = $comment[3];
+        $commentDate = $comment[4];
+        ?>
+        <p>
+          Commentaire de
+          <?= htmlspecialchars($commentPseudo) ?> du <?= $commentDate ?> :  <?= htmlspecialchars($commentContain) ?>
+          <a href="index.php?action=deleteComment&amp;id=<?= $commentId ?>">supprimer</a>
+          <a href="index.php?action=validComment&amp;id=<?= $commentId ?>">valider</a>
+        </p>
+      <?php
+      }
+      $lastComments->closeCursor();
+    ?>
+  </div>
+  <div id="user-panel" class="episode col-lg-12">
     <h4><a href="index.php?action=newEpisode">Rediger un nouvel épisode</a></h4>
 
     <h4>Modifier un episode</h4>

@@ -22,8 +22,9 @@ function login()
 {
   if (isset($_SESSION['statut'])){
     if ($_SESSION['statut'] == 'admin') {
-      $comentManager = new Comments();
-      $comments = $comentManager->getCommentsToModerate();
+      $commentManager = new Comments();
+      $comments = $commentManager->getCommentsToModerate();
+      $lastComments = $commentManager->getLastComments();
       $episodeManager = new Episodes();
       $episodes = $episodeManager->getEpisodes();
       require("view/backoffice/adminview.php");

@@ -47,4 +47,12 @@ class Comments extends QueryManager
     $req->execute();
     return $req;
   }
+
+  public function getLastComments()
+  {
+    $db = $this->dbConnect();
+    $req = $db->prepare("SELECT * FROM comments ORDER BY id DESC LIMIT 10");
+    $req->execute();
+    return $req;
+  }
 }

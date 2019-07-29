@@ -1,6 +1,6 @@
 <?php
 require_once('model/episodemanager.php');
-require_once('model/querymanager.php');
+//require_once('model/querymanager.php');
 require_once('model/loginmanager.php');
 require_once('model/commentsmanager.php');
 

@@ -1,10 +1,21 @@
 <?php
+require_once('model/database.php');
 
 class QueryManager
 {
-  protected function dbConnect()
+  public function __construct()
   {
-    $db = new PDO('mysql:host=localhost;dbname=BSPA;charset=utf8', 'root', 'root');
+    $filename = "admin/dbconfig.json";
+    $database = new Database($filename);
+    $this->username = $database->getUsername();
+    $this->host = $database->getHost();
+    $this->password = $database->getPassword();
+    $this->dbname = $database->getDbname();
+  }
+
+  public function dbConnect()
+  {
+    $db = new PDO('mysql:host='.$this->host.';dbname='.$this->dbname.';charset=utf8', $this->username, $this->password);
     return $db;
   }
 }

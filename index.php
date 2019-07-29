@@ -1,53 +1,61 @@
 <?php
 session_start();
 
-require("controller/controller.php");
+//require("controller/controller.php");
+require("controller/controllerfrontoffice.php");
+require("controller/controllerbackoffice.php");
+
+
+$frontOfficeController = new FrontOfficeController();
+$backOfficeController = new BackOfficeController();
+
+
 try {
   if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listEpisode') {
-      listEpisode();
+      $frontOfficeController->listEpisode();
     }
     elseif ($_GET['action'] == 'login') {
-      login();
+      $backOfficeController->login();
     }
     elseif ($_GET['action'] == 'episode') {
-      episode($_GET['id']);
+      $frontOfficeController->episode($_GET['id']);
     }
     elseif ($_GET['action'] == 'loginUser') {
-      loginUser($_POST);
+      $backOfficeController->loginUser($_POST);
     }
     elseif ($_GET['action'] == 'addComment') {
-        addComment($_GET['id'], $_POST['pseudo'], $_POST['comment']);
-        episode($_GET['id']);
+        $frontOfficeController->addComment($_GET['id'], $_POST['pseudo'], $_POST['comment']);
+        $frontOfficeController->episode($_GET['id']);
     }
     elseif ($_GET['action'] == 'signalComment') {
-        signalComment($_GET['id']);
-        episode($_GET['epId']);
+        $frontOfficeController->signalComment($_GET['id']);
+        $frontOfficeController->episode($_GET['epId']);
     }
     elseif ($_GET['action'] == 'deleteComment') {
-      deleteComment($_GET['id']);
+      $backOfficeController->deleteComment($_GET['id']);
     }
     elseif ($_GET['action'] == 'validComment') {
-      validComment($_GET['id']);
+      $backOfficeController->validComment($_GET['id']);
     }
     elseif ($_GET['action'] == 'newEpisode') {
-      newEpisode();
+      $backOfficeController->newEpisode();
     }
     elseif ($_GET['action'] == 'saveNewEpisode') {
-      saveNewEpisode($_POST['title'],$_POST['episode']);
+      $backOfficeController->saveNewEpisode($_POST['title'],$_POST['episode']);
     }
     elseif ($_GET['action'] == 'modifyEpisode') {
-      modifyEpisode($_GET['id']);
+      $backOfficeController->modifyEpisode($_GET['id']);
     }
     elseif ($_GET['action'] == 'saveModifyEpisode') {
-      saveModifyEpisode($_GET['id'],$_POST['title'],$_POST['episode']);
+      $backOfficeController->saveModifyEpisode($_GET['id'],$_POST['title'],$_POST['episode']);
     }
     elseif ($_GET['action'] == 'deleteEpisode') {
-      deleteEpisode($_GET['id']);
+      $backOfficeController->deleteEpisode($_GET['id']);
     }
   }
   else {
-    displayHome();
+    $frontOfficeController->displayHome();
   }
 
 }

@@ -48,7 +48,7 @@
     <div id="main-content" class="container">
       <?= $content ?>
     </div>
-      <footer class="page-footer font-small blue">
+      <footer class="page-footer fixed-bottom font-small black">
       <div class="footer-copyright text-center py-3">© 2019 Copyright:
         <a href="#"> Jean Forteroche</a>
       </div>

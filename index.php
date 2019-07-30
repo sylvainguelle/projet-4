@@ -4,10 +4,8 @@ session_start();
 require("controller/controllerfrontoffice.php");
 require("controller/controllerbackoffice.php");
 
-
 $frontOfficeController = new FrontOfficeController();
 $backOfficeController = new BackOfficeController();
-
 
 try {
   if (isset($_GET['action'])) {
@@ -60,7 +58,7 @@ try {
 }
 
 catch (\Exception $e) {
-
+  echo $e;
 }
 
  ?>

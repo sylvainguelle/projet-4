@@ -48,7 +48,6 @@
   </div>
   <div id="user-panel" class="episode col-lg-12">
     <h4><a href="index.php?action=newEpisode">Rediger un nouvel épisode</a></h4>
-
     <h4>Modifier un episode</h4>
     <?php
     while ($episode = $episodes->fetch())

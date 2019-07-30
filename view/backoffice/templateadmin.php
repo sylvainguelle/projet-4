@@ -19,6 +19,20 @@
     <link rel="stylesheet" href="./public/css/style.css" />
   </head>
   <body>
+    <?php
+    if (isset($_GET['action'])) {
+      $actionPage = $_GET['action'];
+      if ($actionPage == 'listEpisode' OR $actionPage == 'episode' OR $actionPage == 'addComment' OR $actionPage == 'signalComment') {
+        $actionPage = 'chapitre';
+      }
+      else if ($actionPage == 'login' OR $actionPage == 'loginUser' OR $actionPage == 'deleteComment' OR $actionPage == 'validComment' OR $actionPage == 'newEpisode' OR $actionPage == 'saveNewEpisode' OR $actionPage == 'modifyEpisode' OR $actionPage == 'saveModifyEpisode' OR $actionPage == 'deleteEpisode') {
+        $actionPage = 'login';
+      }
+    }
+    else {
+      $actionPage = 'index';
+    }
+   ?>
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="index.php">Billet simple pour l'Alaska</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,13 +41,13 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <li class="nav-item <?php if ($actionPage == "index") { echo 'active';} ?>">
             <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item <?php if ($actionPage == "chapitre") { echo 'active';} ?>">
             <a class="nav-link" href="index.php?action=listEpisode">Chapitres</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item <?php if ($actionPage == "login") { echo 'active';} ?>">
             <a class="nav-link" href="index.php?action=login">login</a>
           </li>
         </ul>

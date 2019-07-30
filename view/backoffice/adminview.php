@@ -5,9 +5,6 @@
   <div id="user-panel" class="episode col-lg-12">
     <h4>Commentaires signalés par les lecteurs</h4>
     <?php
-      /*if ($comments->fetch() == false) {
-        echo "<p>Pas de commentaires en attente de modération</p>";
-      }*/
       while ($comment = $comments->fetch())
       {
         $commentId = $comment[0];

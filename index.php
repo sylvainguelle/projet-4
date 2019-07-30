@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-//require("controller/controller.php");
 require("controller/controllerfrontoffice.php");
 require("controller/controllerbackoffice.php");
 

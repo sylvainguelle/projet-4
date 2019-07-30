@@ -11,7 +11,7 @@
       français dont les thèmes de prédilection sont l'aventure et la nature
       sauvage.</p>
     <p>Il tire aussi de ses lectures et de sa propre vie de bohème l'inspiration pour de nombreux ouvrages.</p>
-    <p>Pour son nouveau roman, "Billet simple pour l'Alaska", Jean Forteroche innove et les episodes seront publiés en ligne sur ce blog.</p>
+    <p>Pour son nouveau roman, "Billet simple pour l'Alaska", Jean Forteroche innove et les épisodes seront publiés en ligne sur ce blog.</p>
   </div>
 </div>
 <div id="blog-last-episode" class="row justify-content-between">

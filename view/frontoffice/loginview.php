@@ -7,14 +7,14 @@
     <form action="index.php?action=loginUser" method="post">
       <div class="">
         <label for="email">Adresse mail : </label>
-        <input type="email" name="email" value="" required>
+        <input id="email" type="email" name="email" required>
       </div>
       <div class="">
         <label for="password">Mot de passe : </label>
-        <input type="password" name="password" required>
+        <input id="password" type="password" name="password" required>
       </div>
       <div class="">
-        <input type="submit" name="envoyer" required>
+        <input type="submit" name="envoyer">
       </div>
       <div>
       <?php

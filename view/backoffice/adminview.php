@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 <div id="blog-login" class="row justify-content-center">
-  <div id="user-panel" class="episode col-lg-12">
+  <div class="episode col-lg-12">
     <h4>Commentaires signalés par les lecteurs</h4>
     <?php
       while ($comment = $comments->fetch())
@@ -24,7 +24,7 @@
       $comments->closeCursor();
     ?>
   </div>
-  <div id="user-panel" class="episode col-lg-12">
+  <div class="episode col-lg-12">
     <h4>Dernier commentaires écrit par les lecteurs</h4>
     <?php
       while ($comment = $lastComments->fetch())
@@ -46,7 +46,7 @@
       $lastComments->closeCursor();
     ?>
   </div>
-  <div id="user-panel" class="episode col-lg-12">
+  <div class="episode col-lg-12">
     <h4><a href="index.php?action=newEpisode">Rediger un nouvel épisode</a></h4>
     <h4>Modifier un episode</h4>
     <?php

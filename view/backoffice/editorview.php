@@ -6,7 +6,7 @@
     <h1>TinyMCE</h1>
     <form action="index.php?action=saveNewEpisode" method="post">
       <label for="title">Titre de l'épisode :</label>
-      <input type="text" name="title" value="">
+      <input id="title" type="text" name="title" value="">
       <textarea id="mytextarea" name="episode">Hello, World!</textarea>
       <input type="submit" name="valider" value="valider">
     </form>

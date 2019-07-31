@@ -12,7 +12,7 @@ $episodeDate = $episode[3];
     <h1>TinyMCE</h1>
     <form action="index.php?action=saveModifyEpisode&amp;id=<?= $episodeId ?>" method="post">
       <label for="title">Titre de l'épisode :</label>
-      <input type="text" name="title" value="<?= $episodeTitle ?>">
+      <input id="title" type="text" name="title" value="<?= $episodeTitle ?>">
       <textarea id="mytextarea" name="episode"><?= $episodeText?></textarea>
       <input type="submit" name="valider" value="valider">
     </form>

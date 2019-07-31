@@ -53,5 +53,4 @@
       </div>
     </footer>
   </body>
-  <script src="./public/js/navbar.js"></script>
 </html>

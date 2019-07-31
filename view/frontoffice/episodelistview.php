@@ -14,7 +14,7 @@
        <div class="episode">
          <h3><?= $episodeTitle ?></h3>
          <em>Publié le <?= $episodeDate ?></em><br>
-         <?= substr(strip_tags($episodeText),0,200)?> ... <a class="episode-link" href="index.php?action=episode&amp;id=<?= $episodeId ?>">(lire la suite)</a>
+         <p><?= substr(strip_tags($episodeText),0,200)?> ... <a class="episode-link" href="index.php?action=episode&amp;id=<?= $episodeId ?>">(lire la suite)</a></p>
        </div>
      </div>
     <?php
